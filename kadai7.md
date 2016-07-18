@@ -8,7 +8,7 @@ imagesc(ORG); colormap(gray); colorbar;
 
 によって，原画像を読み込み白黒濃淡に変換した結果を図１に示す．
 
-![原画像](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai7-1.jpg)
+![原画像](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai7-1.jpg)  
 図1 原画像(白黒濃淡)
 
 原画像の
@@ -18,7 +18,7 @@ IMG2 = imresize(IMG,2,'box'); % 画像の拡大
 
 の結果を図２に示す．
 
-![原画像](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai7-2.jpg)
+![原画像](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai7-2.jpg)  
 図2 
 
 同様に
@@ -38,5 +38,5 @@ IMG2 = imresize(IMG,2,'box'); % 画像の拡大
 
 の結果を図４～６に示す．
 
-![原画像](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai7-4.jpg)
+![原画像](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai7-4.jpg)  
 図4 
