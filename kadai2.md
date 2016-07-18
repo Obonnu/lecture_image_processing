@@ -1,6 +1,6 @@
 ﻿# 課題2レポート
 
-標準画像「hiroshi_master」を原画像とする．この画像は縦360画素，横290画素による正方形のディジタルカラー画像である．
+標準画像「hiroshi_master」を原画像とする．この画像は縦360画素，横290画素によるディジタルカラー画像である．
 
 ORG=imread('hiroshi_master.jpg'); % 原画像の入力  
 imagesc(ORG); axis image; % 画像の表示
