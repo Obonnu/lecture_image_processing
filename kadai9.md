@@ -29,7 +29,7 @@ imagesc(IMG); colormap(gray); colorbar;
 
 雑音を除去した画像の結果を図3に示す.
 
-![平滑化フィルタでの雑音除去](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai9-3.jpg)
+![平滑化フィルタでの雑音除去](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai9-3.jpg)  
 図3 平滑化フィルタでの雑音除去
 
 メディアンフィルタを適用し、雑音を除去する.
@@ -39,7 +39,7 @@ imagesc(IMG); colormap(gray); colorbar; % 画像の表示
 
 雑音を除去した画像の結果を図4に示す.
 
-![メディアンフィルタの雑音除去](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai9-4.jpg)
+![メディアンフィルタの雑音除去](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai9-4.jpg)  
 図4 メディアンフィルタでの雑音除去
 
 次にフィルタを作成し,雑音を除去する.
@@ -50,6 +50,6 @@ imagesc(IMG); colormap(gray); colorbar; % 画像の表示
 
 作成したフィルタを適用した画像の結果を図5に示す.
 
-![作成したフィルタの雑音除去](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai9-5.jpg)
+![作成したフィルタの雑音除去](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai9-5.jpg)  
 図4 作成したフィルタでの雑音除去
 
