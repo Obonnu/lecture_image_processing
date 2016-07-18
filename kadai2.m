@@ -1,28 +1,29 @@
-% èª²é¡Œï¼’ã€€éšŽèª¿æ•°ã¨ç–‘ä¼¼è¼ªéƒ­
-% ï¼’éšŽèª¿ï¼Œï¼”éšŽèª¿ï¼Œï¼˜éšŽèª¿ã®ç”»åƒã‚’ç”Ÿæˆã›ã‚ˆï¼Ž
-% ä¸‹è¨˜ã¯ã‚µãƒ³ãƒ—ãƒ«ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã§ã‚ã‚‹ï¼Ž
-% èª²é¡Œä½œæˆã«ã‚ãŸã£ã¦ã¯ã€ŒLennaã€ä»¥å¤–ã®ç”»åƒã‚’ç”¨ã„ã‚ˆï¼Ž
+% ‰Û‘è‚Q@ŠK’²”‚Æ‹^Ž——ÖŠs
+% ‚QŠK’²C‚SŠK’²C‚WŠK’²‚Ì‰æ‘œ‚ð¶¬‚¹‚æD
+% ‰º‹L‚ÍƒTƒ“ƒvƒ‹ƒvƒƒOƒ‰ƒ€‚Å‚ ‚éD
+% ‰Û‘èì¬‚É‚ ‚½‚Á‚Ä‚ÍuLennavˆÈŠO‚Ì‰æ‘œ‚ð—p‚¢‚æD
 
-clear; % å¤‰æ•°ã®ã‚ªãƒ¼ãƒ«ã‚¯ãƒªã‚¢
+clear; % •Ï”‚ÌƒI[ƒ‹ƒNƒŠƒA
 
-ORG=imread('hiroshi_master.jpg'); % åŽŸç”»åƒã®å…¥åŠ›
+ORG=imread('hiroshi_master.jpg'); % Œ´‰æ‘œ‚Ì“ü—Í
 ORG = rgb2gray(ORG); colormap(gray); colorbar;
-imagesc(ORG); axis image; % ç”»åƒã®è¡¨ç¤º
-pause; % ä¸€æ™‚åœæ­¢
+imagesc(ORG); axis image; % ‰æ‘œ‚Ì•\Ž¦
+pause; % ˆêŽž’âŽ~
 
-% ï¼’éšŽèª¿ç”»åƒã®ç”Ÿæˆ
+% ‚QŠK’²‰æ‘œ‚Ì¶¬
 IMG = ORG>128;
 imagesc(IMG); colormap(gray); colorbar;  axis image;
 pause;
 
-% ï¼”éšŽèª¿ç”»åƒã®ç”Ÿæˆ
+% ‚SŠK’²‰æ‘œ‚Ì¶¬
 IMG0 = ORG>64;
 IMG1 = ORG>128;
 IMG2 = ORG>192;
 IMG = IMG0 + IMG1 + IMG2;
 imagesc(IMG); colormap(gray); colorbar;  axis image;
+pause;
 
-% ï¼˜éšŽèª¿ã«ã¤ã„ã¦ã¯ï¼Œå„è‡ªæ¤œè¨Žã—ã¦ãã ã•ã„ï¼Ž
+% ‚WŠK’²‚É‚Â‚¢‚Ä‚ÍCŠeŽ©ŒŸ“¢‚µ‚Ä‚­‚¾‚³‚¢D
 IMG3 = ORG>32;
 IMG4 = ORG>64;
 IMG5 = ORG>96;
