@@ -37,9 +37,9 @@ imagesc(IMG); colormap(gray); colorbar;
 ![閾値96](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai3-3.jpg)  
 図3 閾値96
 
-![閾値128](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai3-4.jpg)
+![閾値128](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai3-4.jpg)  
 図4 閾値128
 
-![閾値192](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai3-5.jpg)
+![閾値192](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai3-5.jpg)  
 図5 閾値192
 
