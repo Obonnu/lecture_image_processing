@@ -8,43 +8,45 @@ imagesc(ORG); colormap(gray); colorbar;
 
 によって，原画像を読み込み白黒濃淡に変換した結果を図１に示す．
 
-![原画像](https://github.com/mackhasegawa/lecture_image_processing/blob/master/image/org_img.png?raw=true)  
+![原画像](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai5-1.jpg)  
 図1 原画像
 
-原画像を1/2サンプリングするには，画像を1/2倍に縮小した後，2倍に拡大すればよい．なお，拡大する際には，単純補間するために「box」オプションを設定する．
+判別分析法を用いて、白黒濃淡原画像を二値化する.
 
-IMG = imresize(ORG,0.5); % 画像の縮小  
-IMG2 = imresize(IMG,2,'box'); % 画像の拡大
+はじめに,「imhist」コマンドを使用し,画像のヒストグラムデータを別ベクトルに格納する.
 
-1/2サンプリングの結果を図２に示す．
+H = imhist(ORG);
 
-![原画像](https://github.com/mackhasegawa/lecture_image_processing/blob/master/image/kadai1_1.png?raw=true)  
-図2 1/2サンプリング
+次に、格納したデータを2つのクラスに分ける.
 
-同様に原画像を1/4サンプリングするには，画像を1/2倍に縮小した後，2倍に拡大すればよい．すなわち，
+C1 = H(1:i);
+C2 = H(i+1:256);
 
-IMG = imresize(ORG,0.5); % 画像の縮小  
-IMG2 = imresize(IMG,2,'box'); % 画像の拡大
+これは,格納したデータを一つずつ順番に取り出している.
+取り出したC1とC2の画素値,平均値,分散,を算出する.
 
-とする．1/4サンプリングの結果を図３に示す．
+n1 = sum(C1); 
+n2 = sum(C2);
+myu1 = mean(C1); 
+myu2 = mean(C2);
+sigma1 = var(C1); 
+sigma2 = var(C2);　
 
-![原画像](https://github.com/mackhasegawa/lecture_image_processing/blob/master/image/kadai1_2.png?raw=true)  
-図3 1/4サンプリング
+次に,クラス内分散とクラス間分散を算出する.
 
-1/8から1/32サンプリングは，
+sigma_w = (n1 *sigma1+n2*sigma2)/(n1+n2); 
+sigma_B = (n1 *(myu1-myu_T)^2+n2*(myu2-myu_T)^2)/(n1+n2); 
 
-IMG = imresize(ORG,0.5); % 画像の縮小  
-IMG2 = imresize(IMG,2,'box'); % 画像の拡大
+最後に,「if」コマンドを用いて,クラス間分散をクラス内分散で割った値が0より大きい場合に値の再格納をするように設定する.
 
-を繰り返す．サンプリングの結果を図４～６に示す．
+if max_val<sigma_B/sigma_w
+max_val = sigma_B/sigma_w;
+max_thres =i;
+end;
 
-![原画像](https://github.com/mackhasegawa/lecture_image_processing/blob/master/image/kadai1_3.png?raw=true)  
-図4 1/8サンプリング
+これを画素値の最大である,「256」まで繰り返し行うことで,より正確な閾値で二値化することができる.
+分析判別法で二値化した画像の結果を図２に示す．
 
-![原画像](https://github.com/mackhasegawa/lecture_image_processing/blob/master/image/kadai1_4.png?raw=true)  
-図5 1/16サンプリング
+![原画像](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai5-2.jpg)  
+図2 分析判別法による二値化画像
 
-![原画像](https://github.com/mackhasegawa/lecture_image_processing/blob/master/image/kadai1_5.png?raw=true)  
-図6 1/32サンプリング
-
-このようにサンプリング幅が大きくなると，モザイク状のサンプリング歪みが発生する．
