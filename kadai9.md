@@ -1,49 +1,55 @@
-﻿# 課題１レポート（サンプル）
+﻿# 課題9レポート
 
-標準画像「Lenna」を原画像とする．この画像は縦512画像，横512画素による正方形のディジタルカラー画像である．
+標準画像「hiroshi_master」を原画像とする．この画像は縦360画素，横290画素によるディジタルカラー画像である．
 
-ORG=imread('Lenna.png'); % 原画像の入力  
-imagesc(ORG); axis image; % 画像の表示
+ORG=imread('hiroshi_master.jpg'); % 原画像の入力  
+ORG=rgb2gray(ORG); % カラー画像を白黒濃淡画像へ変換
+imagesc(ORG); colormap(gray); colorbar;
 
-によって，原画像を読み込み，表示した結果を図１に示す．
+によって，原画像を読み込み白黒濃淡に変換した結果を図１に示す．
 
-![原画像](https://github.com/mackhasegawa/lecture_image_processing/blob/master/image/org_img.png?raw=true)  
-図1 原画像
+![原画像](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai9-1.jpg)  
+図1 原画像(白黒濃淡)
 
-原画像を1/2サンプリングするには，画像を1/2倍に縮小した後，2倍に拡大すればよい．なお，拡大する際には，単純補間するために「box」オプションを設定する．
+メディアンフィルターを適用し、ノイズを除去する.
+原画像にノイズを添付する.
 
-IMG = imresize(ORG,0.5); % 画像の縮小  
-IMG2 = imresize(IMG,2,'box'); % 画像の拡大
+ORG = imnoise(ORG,'salt & pepper',0.02); % ノイズ添付
+imagesc(ORG); colormap(gray); colorbar; % 画像の表示
 
-1/2サンプリングの結果を図２に示す．
+ノイズを添付した画像の結果を図２に示す．
 
-![原画像](https://github.com/mackhasegawa/lecture_image_processing/blob/master/image/kadai1_1.png?raw=true)  
-図2 1/2サンプリング
+![ノイズ画像](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai9-2.jpg)  
+図2 ノイズ画像
 
-同様に原画像を1/4サンプリングするには，画像を1/2倍に縮小した後，2倍に拡大すればよい．すなわち，
+平滑化フィルタを適用し、雑音を除去する.
 
-IMG = imresize(ORG,0.5); % 画像の縮小  
-IMG2 = imresize(IMG,2,'box'); % 画像の拡大
+IMG = filter2(fspecial('average',3),ORG); % 平滑化フィルタで雑音除去
+imagesc(IMG); colormap(gray); colorbar;
 
-とする．1/4サンプリングの結果を図３に示す．
+雑音を除去した画像の結果を図3に示す.
 
-![原画像](https://github.com/mackhasegawa/lecture_image_processing/blob/master/image/kadai1_2.png?raw=true)  
-図3 1/4サンプリング
+![平滑化フィルタでの雑音除去](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai9-3.jpg)
+図3 平滑化フィルタでの雑音除去
 
-1/8から1/32サンプリングは，
+メディアンフィルタを適用し、雑音を除去する.
 
-IMG = imresize(ORG,0.5); % 画像の縮小  
-IMG2 = imresize(IMG,2,'box'); % 画像の拡大
+IMG = medfilt2(ORG,[3 3]); % メディアンフィルタで雑音除去
+imagesc(IMG); colormap(gray); colorbar; % 画像の表示
 
-を繰り返す．サンプリングの結果を図４～６に示す．
+雑音を除去した画像の結果を図4に示す.
 
-![原画像](https://github.com/mackhasegawa/lecture_image_processing/blob/master/image/kadai1_3.png?raw=true)  
-図4 1/8サンプリング
+![メディアンフィルタの雑音除去](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai9-4.jpg)
+図4 メディアンフィルタでの雑音除去
 
-![原画像](https://github.com/mackhasegawa/lecture_image_processing/blob/master/image/kadai1_4.png?raw=true)  
-図5 1/16サンプリング
+次にフィルタを作成し,雑音を除去する.
 
-![原画像](https://github.com/mackhasegawa/lecture_image_processing/blob/master/image/kadai1_5.png?raw=true)  
-図6 1/32サンプリング
+f=[0,-1,0;-1,5,-1;0,-1,0]; % フィルタの設計
+IMG = filter2(f,IMG,'same'); % フィルタの適用
+imagesc(IMG); colormap(gray); colorbar; % 画像の表示
 
-このようにサンプリング幅が大きくなると，モザイク状のサンプリング歪みが発生する．
+作成したフィルタを適用した画像の結果を図5に示す.
+
+![作成したフィルタの雑音除去](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai9-5.jpg)
+図4 作成したフィルタでの雑音除去
+
