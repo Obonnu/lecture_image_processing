@@ -8,7 +8,7 @@ imagesc(ORG); colormap(gray); colorbar;
 
 によって，原画像を読み込み白黒濃淡に変換した結果を図１に示す．
 
-![原画像](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai8-1.jpg)
+![原画像](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai8-1.jpg)  
 図1 原画像(白黒濃淡)
 
 二値化した画像の連結成分にラベル付けを行う.そのために原画像(白黒濃淡)を閾値128で二値化する．
@@ -28,5 +28,5 @@ imagesc(IMG); colormap(jet); colorbar; % 画像の表示
 
 ラベリングした画像の結果を図3に表示する.
 
-![ラベリング](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai8-3.jpg)  
+![ラベリング](https://github.com/Obonnu/lecture_image_processing/blob/master/image/hiroshi_kadai8-3.jpg)   
 図2 ラベリング
